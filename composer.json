@@ -1,0 +1,36 @@
+{
+    "name": "mdmasudsikdar71/geezsms-php-client",
+    "description": "PHP client for Geez SMS Gateway",
+    "type": "library",
+    "version": "1.0.0",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "MD Masud Sikdar",
+            "email": "masudsikdar85@gmail.com",
+            "role": "Software Engineer"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.8"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.6",
+        "phpunit/phpunit": "^10.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "MDMasudSikdar\\Geezsms\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MDMasudSikdar\\Geezsms\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
