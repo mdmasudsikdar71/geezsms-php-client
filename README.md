@@ -26,10 +26,6 @@ $response = $smsClient->sendOtp('2519XXXXXXXX');
 // Send an SMS to a phone number with a message
 $response = $smsClient->sendSms('2519XXXXXXXX', 'Hello, this is a test message.');
 
-// Send lite bulk SMS to multiple phone numbers with a common message
-$phones = ['2519XXXXXXXX', '2519XXXXXXXX'];
-$response = $smsClient->sendLiteBulk($phones, 'Hello, this is a bulk message.');
-
 // Send bulk SMS to multiple phone numbers with a common message and notification URL
 $phones = ['2519XXXXXXXX', '2519XXXXXXXX'];
 $response = $smsClient->sendBulk($phones, 'Hello, this is a bulk message.', 'https://example.com/notify');

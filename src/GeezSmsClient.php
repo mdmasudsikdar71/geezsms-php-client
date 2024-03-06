@@ -90,7 +90,7 @@ class GeezSmsClient
      *
      * @throws ClientExceptionInterface
      */
-    public function sendSms(string $phone, string $message, string $method = 'GET'): array
+    public function sendSms(string $phone, string $message, string $method = 'POST'): array
     {
         $this->validatePhoneNumber($phone);
         $this->validateMessageLength($message);
@@ -106,35 +106,6 @@ class GeezSmsClient
     }
 
     /**
-     * Send SMS to multiple phone numbers with a common message.
-     *
-     * @param array $phones Array of phone numbers.
-     * @param string $message The SMS message.
-     * @param string $method The HTTP method (default is 'POST').
-     *
-     * @return array The decoded response data.
-     *
-     * @throws ClientExceptionInterface
-     */
-    public function sendLiteBulk(array $phones, string $message, string $method = 'GET'): array
-    {
-        $this->validateBulkPhoneNumbers($phones);
-        $this->validateMessageLength($message);
-
-        $body = [
-            'phone' => json_encode($phones),
-            'msg' => $message,
-        ];
-
-        // Add 'group_id' to the body if $this->group_id is not empty
-        if (!empty($this->group_id)) {
-            $body['groupid'] = $this->group_id;
-        }
-
-        return $this->sendRequest("/lite/sendbulk", $method, $body);
-    }
-
-    /**
      * Send SMS to multiple phone numbers with a common message and notification URL.
      *
      * @param array $phones Array of phone numbers.
@@ -146,7 +117,7 @@ class GeezSmsClient
      *
      * @throws ClientExceptionInterface
      */
-    public function sendBulk(array $phones, string $message, string $notify_url, string $method = 'GET'): array
+    public function sendBulk(array $phones, string $message, string $notify_url): array
     {
         $this->validateBulkPhoneNumbers($phones);
         $this->validateMessageLength($message);
@@ -163,7 +134,7 @@ class GeezSmsClient
             $body['groupid'] = $this->group_id;
         }
 
-        return $this->sendRequest("/sendbulk", $method, $body);
+        return $this->sendRequest('/send/bulk', 'POST', $body);
     }
 
     /**
