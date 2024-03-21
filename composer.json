@@ -2,7 +2,7 @@
     "name": "mdmasudsikdar71/geezsms-php-client",
     "description": "PHP client for Geez SMS Gateway",
     "type": "library",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "license": "proprietary",
     "authors": [
         {
